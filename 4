@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. 地図のサイズ N を入力
+        int N = scanner.nextInt();
+
+        // 2. 地図を表す2次元配列を作成
+        int[][] map = new int[N][N];
+
+        // 3. 地図の高さを入力
+        for (int i = 0; i < N; i++) { // 各行について
+            for (int j = 0; j < N; j++) { // 各列について
+                map[i][j] = scanner.nextInt();
+            }
+        }
+
+        // 4. 各列の最大値を計算
+        for (int col = 0; col < N; col++) { // 列を順番に処理
+            int max = Integer.MIN_VALUE; // 現在の列の最大値を記録（初期値は最小値）
+
+            for (int row = 0; row < N; row++) { // 各行の値を確認
+                if (map[row][col] > max) { // 現在の値が最大値より大きければ
+                    max = map[row][col]; // 最大値を更新
+                }
+            }
+
+            // 現在の列の最大値を出力
+            System.out.println(max);
+        }
+
+        // 5. 入力ストリームを閉じる
+        scanner.close();
+    }
+}
