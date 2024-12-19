@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // 入力を受け取る
+        int capacity = sc.nextInt();  // 箱の容量（何グラムごと）
+
+        int N = sc.nextInt();  // みかんの数
+        
+        for (int i = 0; i < N; i++) {
+            int mikanWeight = sc.nextInt();  // 各みかんの重さ
+
+            // 箱の重さを計算
+            int boxWeight = (mikanWeight / capacity) * capacity;
+
+            // 必要な場合は次の箱のサイズに調整
+            if (mikanWeight % capacity != 0) {
+                boxWeight += capacity;
+            }
+            System.out.println(boxWeight);
+        }
+    }
+}
+
